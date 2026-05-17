@@ -1,0 +1,570 @@
+/* Custom CSS for EnginCV */
+:root {
+    --primary: #6366f1; /* Indigo */
+    --secondary: #ec4899; /* Pink */
+    --accent: #06b6d4; /* Cyan */
+    --bg-dark: #0f172a; /* Slate 900 */
+    --bg-card: rgba(30, 41, 59, 0.4);
+    --text-main: #f8fafc;
+    --text-muted-light: #94a3b8;
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    line-height: 1.7;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    border-radius: 4px;
+}
+
+/* Utilities */
+.color-white {
+    color: #ffffff !important;
+}
+.line-height-lg {
+    line-height: 1.5 !important;
+}
+.text-gradient {
+    background: linear-gradient(45deg, var(--accent), var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+}
+
+.z-index-1 { z-index: 1; }
+
+/* Navbar */
+.navbar-glass {
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.4s ease;
+    padding: 15px 0;
+}
+.navbar-glass.scrolled {
+    padding: 10px 0;
+    background: rgba(15, 23, 42, 0.9);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.brand-text {
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: 0.5px;
+}
+.logo-placeholder {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+}
+.nav-link {
+    color: var(--text-muted-light) !important;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    margin: 0 10px;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active {
+    color: white !important;
+    transform: translateY(-2px);
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transition: 0.3s;
+}
+.nav-link:hover::after, .nav-link.active::after {
+    width: 50%;
+}
+.custom-toggler {
+    border: 1px solid var(--glass-border);
+    padding: 5px 10px;
+}
+.custom-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+/* Buttons */
+.btn-gradient {
+    background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent));
+    color: white !important;
+    border: none;
+    font-weight: 700;
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+.btn-gradient:hover {
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(236, 72, 153, 0.4);
+}
+.shadow-glow {
+    box-shadow: 0 0 25px rgba(99, 102, 241, 0.6);
+}
+.btn-outline-glass {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    color: white !important;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    transition: 0.4s;
+}
+.btn-outline-glass:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    padding-top: 80px;
+    overflow: hidden;
+}
+.hero-bg-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+.shape {
+    position: absolute;
+    filter: blur(120px);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 12s infinite alternate ease-in-out;
+}
+.shape-1 {
+    top: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: var(--primary);
+}
+.shape-2 {
+    bottom: -20%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: var(--secondary);
+    animation-delay: -6s;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-80px, 80px) scale(1.1); }
+}
+
+.badge-glow {
+    background: rgba(6, 182, 212, 0.15);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* Animations / Mockups */
+.mockup-container {
+    position: relative;
+    height: 550px;
+    perspective: 1200px;
+}
+.cv-card {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7);
+    transition: transform 0.5s ease;
+}
+.card-1 {
+    width: 320px;
+    height: 440px;
+    top: 30px;
+    left: 15%;
+    transform: rotateY(15deg) rotateX(5deg);
+    animation: floatingCard1 7s infinite alternate ease-in-out;
+    z-index: 2;
+}
+.card-2 {
+    width: 280px;
+    height: 380px;
+    top: 100px;
+    right: 5%;
+    background: rgba(15, 23, 42, 0.85);
+    transform: rotateY(-15deg) rotateX(-5deg) translateZ(-50px);
+    border-right: 3px solid var(--secondary);
+    animation: floatingCard2 8s infinite alternate ease-in-out;
+    z-index: 1;
+}
+@keyframes floatingCard1 {
+    0% { transform: rotateY(15deg) rotateX(5deg) translateY(0); }
+    100% { transform: rotateY(15deg) rotateX(5deg) translateY(-25px); }
+}
+@keyframes floatingCard2 {
+    0% { transform: rotateY(-15deg) rotateX(-5deg) translateZ(-50px) translateY(0); }
+    100% { transform: rotateY(-15deg) rotateX(-5deg) translateZ(-50px) translateY(25px); }
+}
+
+/* Abstract Lines for CV Cards */
+.cv-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    margin-bottom: 25px;
+}
+.cv-header-alt {
+    width: 100%;
+    height: 70px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(236, 72, 153, 0.3), transparent);
+    margin-bottom: 20px;
+}
+.cv-line {
+    height: 8px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 4px;
+    margin-bottom: 12px;
+}
+.cv-box {
+    height: 90px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+.cv-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+}
+
+/* Glass Card */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    transition: 0.4s;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.glass-card:hover {
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    transform: translateY(-10px);
+}
+
+.icon-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--secondary);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Services Section */
+.service-card {
+    border-top: 3px solid transparent;
+}
+.service-card:hover {
+    border-top: 3px solid var(--accent);
+}
+.icon-box-sm {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    border: 1px solid var(--glass-border);
+}
+
+/* Process Section */
+.process-section {
+    background: radial-gradient(circle at center, rgba(30, 41, 59, 0.5) 0%, transparent 70%);
+}
+.process-line {
+    position: absolute;
+    top: 30px;
+    left: 15%;
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+    z-index: 0;
+}
+.process-step {
+    position: relative;
+    z-index: 1;
+    padding: 0 15px;
+}
+.step-number {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    background: var(--primary);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid var(--bg-dark);
+}
+
+/* Contact Links */
+.contact-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.contact-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+    z-index: 0;
+}
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    border: 1px solid var(--glass-border);
+    transition: 0.4s;
+    position: relative;
+    z-index: 1;
+}
+.contact-link:hover {
+    background: rgba(255,255,255,0.1);
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-3px);
+}
+.contact-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary);
+    font-size: 1rem;
+}
+
+/* Social Buttons */
+.social-links {
+    display: flex;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+}
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.4rem;
+    text-decoration: none;
+    transition: 0.4s;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--glass-border);
+}
+.social-btn:hover {
+    transform: translateY(-5px);
+}
+.social-btn.facebook:hover { background: #1877F2; border-color: #1877F2; color: white; box-shadow: 0 5px 15px rgba(24, 119, 242, 0.4);}
+.social-btn.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); border-color: transparent; color: white; box-shadow: 0 5px 15px rgba(214, 36, 159, 0.4);}
+.social-btn.whatsapp:hover { background: #25D366; border-color: #25D366; color: white; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);}
+
+/* Floating WhatsApp */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.floating-whatsapp::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #25d366;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+.floating-whatsapp:hover {
+    background-color: #128C7E;
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Scroll to Top Button */
+.scroll-top-btn {
+    position: fixed;
+    bottom: 110px; /* Above WhatsApp button */
+    right: 38px;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    text-decoration: none;
+}
+.scroll-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+}
+.scroll-top-btn:hover {
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Footer */
+.footer {
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Responsive Overrides */
+@media (max-width: 991px) {
+    .hero-section {
+        padding-top: 120px;
+        text-align: center;
+    }
+    .mockup-container {
+        height: 400px;
+        margin-top: 40px;
+    }
+    .card-1 { left: auto; right: 10%; width: 250px; height: 350px; }
+    .card-2 { right: auto; left: 5%; width: 220px; height: 300px; }
+    
+    .navbar-glass {
+        background: rgba(15, 23, 42, 0.95);
+    }
+    .navbar-collapse {
+        background: rgba(30, 41, 59, 0.95);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        border: 1px solid var(--glass-border);
+        text-align: center;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1.2rem;
+        margin: 10px 0;
+        display: inline-block; /* Ensures the bottom border is centered to text width */
+    }
+    .process-line { display: none; }
+}
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    .mockup-container {
+        height: 320px;
+    }
+    .card-1 { right: 5%; width: 200px; height: 280px; }
+    .card-2 { left: 0%; width: 180px; height: 240px; }
+    
+    .floating-whatsapp {
+        width: 55px;
+        height: 55px;
+        font-size: 30px;
+        bottom: 20px;
+        right: 20px;
+    }
+    .scroll-top-btn {
+        width: 45px;
+        height: 45px;
+        bottom: 90px;
+        right: 25px;
+        font-size: 1rem;
+    }
+}
